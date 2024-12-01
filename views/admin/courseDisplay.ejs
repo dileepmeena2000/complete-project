@@ -1,0 +1,110 @@
+<%- include('./header.ejs') %>
+  <%- include('./sidebar.ejs') %>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <div class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1 class="m-0">Course Display</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active">Course Display</li>
+              </ol>
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </div>
+      <!-- /.content-header -->
+
+      <!-- Main content -->
+      <div class="content">
+        <div class="container-fluid">
+          <div class="card">
+            <div class="card-header">
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th>Id</th>
+                    <th>name</th>
+                    <th>EMail</th>
+                    <th>Course</th>
+                    <th>Status</th>
+                    <th>Comment</th>
+                    <th></th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% c.forEach((item)=>{ %>
+
+                    <tr>
+                      <td>
+                        <%= item._id %>
+                      </td>
+                      <td>
+                        <%= item.name %>
+                      </td>
+                      <td>
+                        <%= item.email %>
+                      </td>
+                      <td>
+                        <%= item.course %>
+                      </td>
+                      <td>
+                        <%= item.status %>
+                      </td>
+                      <td>
+                        <form action="/update_status/<%= item._id %>" method="post">
+                          <textarea name="comment" class="form-control"></textarea>
+                          <input type="hidden" name="name" value="<%= item.name %>">
+                          <input type="hidden" name="email" value="<%= item.email %>">
+                          <input type="hidden" name="course" value="<%= item.course %>">
+
+                      </td>
+                      <td>
+                        <button type="submit" name="status" class="btn btn-success" value="Approved">Approved</button>
+                        <button type="submit" name="status" class="btn btn-danger" value="Reject">Reject</button>
+                        </form>
+                      <td>
+                        <a href="/courseView/<%= item._id %>" class="btn btn-primary">View</a>
+                        <a href="/courseEdit/<%= item._id %>" class="btn btn-info">Edit</a>
+                        <a href="/courseDelete/<%= item._id %>" class="btn btn-danger">Delete</a>
+                      </td>
+
+                    </tr>
+
+                    <% }) %>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th>Id</th>
+                    <th>name</th>
+                    <th>EMail</th>
+                    <th>Course</th>
+                    <th>Status</th>
+                    <th>Comment</th>
+                    <th></th>
+                    <th>Action</th>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div><!-- /.container-fluid -->
+      </div>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <!-- /.control-sidebar -->
+    <%- include('./footer.ejs') %>
+    

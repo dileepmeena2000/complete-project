@@ -1,0 +1,61 @@
+<%- include('./header.ejs') %>
+  <%- include('./sidebar.ejs') %>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <div class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1 class="m-0">Profile</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
+                <li class="breadcrumb-item active">Profile</li>
+               
+              </ol>
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </div>
+      <!-- /.content-header -->
+
+      <!-- Main content -->
+      <div class="content">
+        <div class="container-fluid">
+          <div class="card">
+            <!-- /.card-header -->
+            <div class="card-body">
+                <form action="/admin/updateProfile" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="">Name</label>
+                        <input type="text" value="<%= n %>" name="name" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="">Email</label>
+                        <input type="text" value="<%= e %>" name="email" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="">Image</label>
+                        <br>
+                        <img src="<%= i.url %>" alt="" width="100">
+                        <br> <br>
+                        <input type="file"  name="image" class="form-control">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-info">Update Profile</button>
+
+                </form>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div><!-- /.container-fluid -->
+      </div>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <!-- /.control-sidebar -->
+    <%- include('./footer.ejs') %>

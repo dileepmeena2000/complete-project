@@ -3,7 +3,7 @@
 ------------------------------------------------------------------ */
 
 body{
-    background: #f7f0bd !important;
+    background: orange !important;
 }
 
 /* ::placeholder{
@@ -24,7 +24,7 @@ button{
 ------------------------------------------------------------------ */
 
 #navbar nav{
-    background: #0000009c !important;
+    background: rgb(224, 80, 28) !important;
 }
 
 .webViewPosition{

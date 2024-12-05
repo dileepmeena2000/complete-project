@@ -18,7 +18,7 @@ class CourseController {
         course: course,
         user_id: id,
       });
-
+      await result.save()
       this.sendEmail(name, email, course);
       res.redirect("/coursedisplay");
     } catch (error) {

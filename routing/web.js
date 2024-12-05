@@ -4,6 +4,8 @@ const AdminController = require('../controllers/admin/AdminController')
 const route = express.Router()
 const checkAuth = require ('../middleware/auth')
 const CourseController = require('../controllers/courseControllers')
+const ContactContoller = require('../controllers/contactController')
+
 
 // frontcontrollers Routing
 route.get('/home',checkAuth,FrontController.home)
@@ -58,6 +60,11 @@ route.post("/courseUpdate/:id",checkAuth,CourseController.courseUpdate)
 route.get("/courseDelete/:id",checkAuth,CourseController.courseDelete)
 
   
+
+// contactcontoller
+route.post('/contact_insert',checkAuth,ContactContoller.contactinsert)
+// route.get('/admin/contactdisplay',checkAuth,AdminController.contactdisplay)
+
 
  
   module.exports= route
